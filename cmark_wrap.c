@@ -2735,20 +2735,25 @@ SWIG_Lua_dostring(lua_State *L, const char *str) {
 /* -------- TYPES TABLE (BEGIN) -------- */
 
 #define SWIGTYPE_p_FILE swig_types[0]
-#define SWIGTYPE_p_cmark_delim_type swig_types[1]
-#define SWIGTYPE_p_cmark_event_type swig_types[2]
-#define SWIGTYPE_p_cmark_iter swig_types[3]
-#define SWIGTYPE_p_cmark_list_type swig_types[4]
-#define SWIGTYPE_p_cmark_mem swig_types[5]
-#define SWIGTYPE_p_cmark_node swig_types[6]
-#define SWIGTYPE_p_cmark_node_type swig_types[7]
-#define SWIGTYPE_p_cmark_parser swig_types[8]
-#define SWIGTYPE_p_f_p_void__void swig_types[9]
-#define SWIGTYPE_p_f_p_void_size_t__p_void swig_types[10]
-#define SWIGTYPE_p_f_size_t_size_t__p_void swig_types[11]
-#define SWIGTYPE_p_void swig_types[12]
-static swig_type_info *swig_types[14];
-static swig_module_info swig_module = {swig_types, 13, 0, 0, 0, 0};
+#define SWIGTYPE_p__cmark_llist swig_types[1]
+#define SWIGTYPE_p_cmark_delim_type swig_types[2]
+#define SWIGTYPE_p_cmark_event_type swig_types[3]
+#define SWIGTYPE_p_cmark_iter swig_types[4]
+#define SWIGTYPE_p_cmark_list_type swig_types[5]
+#define SWIGTYPE_p_cmark_mem swig_types[6]
+#define SWIGTYPE_p_cmark_node swig_types[7]
+#define SWIGTYPE_p_cmark_node_type swig_types[8]
+#define SWIGTYPE_p_cmark_parser swig_types[9]
+#define SWIGTYPE_p_cmark_syntax_extension swig_types[10]
+#define SWIGTYPE_p_f_p_struct_cmark_mem_p_void__void swig_types[11]
+#define SWIGTYPE_p_f_p_void__void swig_types[12]
+#define SWIGTYPE_p_f_p_void_size_t__p_void swig_types[13]
+#define SWIGTYPE_p_f_size_t_size_t__p_void swig_types[14]
+#define SWIGTYPE_p_int swig_types[15]
+#define SWIGTYPE_p_int32_t swig_types[16]
+#define SWIGTYPE_p_void swig_types[17]
+static swig_type_info *swig_types[19];
+static swig_module_info swig_module = {swig_types, 18, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2760,7 +2765,7 @@ static swig_module_info swig_module = {swig_types, 13, 0, 0, 0, 0};
 
 #define SWIG_LUACODE   luaopen_cmark_luacode
 
-#include "cmark.h"
+#include "cmark-gfm.h"
 
 
 SWIGINTERN int SWIG_lua_isnilstring(lua_State *L, int idx) {
@@ -2796,6 +2801,70 @@ static int _wrap_markdown_to_html(lua_State* L) {
   arg3 = (int)lua_tonumber(L, 3);
   result = (char *)cmark_markdown_to_html((char const *)arg1,arg2,arg3);
   lua_pushstring(L,(const char *)result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_NODE_LAST_BLOCK_set(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node_type arg1 ;
+  
+  SWIG_check_num_args("CMARK_NODE_LAST_BLOCK",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("CMARK_NODE_LAST_BLOCK",1,"cmark_node_type");
+  arg1 = (cmark_node_type)(int)lua_tonumber(L, 1);
+  CMARK_NODE_LAST_BLOCK = arg1;
+  
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_NODE_LAST_BLOCK_get(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node_type result;
+  
+  SWIG_check_num_args("CMARK_NODE_LAST_BLOCK",0,0)
+  result = (cmark_node_type)CMARK_NODE_LAST_BLOCK;
+  lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_NODE_LAST_INLINE_set(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node_type arg1 ;
+  
+  SWIG_check_num_args("CMARK_NODE_LAST_INLINE",1,1)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("CMARK_NODE_LAST_INLINE",1,"cmark_node_type");
+  arg1 = (cmark_node_type)(int)lua_tonumber(L, 1);
+  CMARK_NODE_LAST_INLINE = arg1;
+  
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_NODE_LAST_INLINE_get(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node_type result;
+  
+  SWIG_check_num_args("CMARK_NODE_LAST_INLINE",0,0)
+  result = (cmark_node_type)CMARK_NODE_LAST_INLINE;
+  lua_pushnumber(L, (lua_Number)(int)(result)); SWIG_arg++;
   return SWIG_arg;
   
   fail: SWIGUNUSED;
@@ -3034,6 +3103,290 @@ static int _wrap_get_default_mem_allocator(lua_State* L) {
 }
 
 
+static int _wrap_get_arena_mem_allocator(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_mem *result = 0 ;
+  
+  SWIG_check_num_args("cmark_get_arena_mem_allocator",0,0)
+  result = (cmark_mem *)cmark_get_arena_mem_allocator();
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_cmark_mem,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_arena_reset(lua_State* L) {
+  int SWIG_arg = 0;
+  
+  SWIG_check_num_args("cmark_arena_reset",0,0)
+  cmark_arena_reset();
+  
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_cmark_llist_next_set(lua_State* L) {
+  int SWIG_arg = 0;
+  struct _cmark_llist *arg1 = (struct _cmark_llist *) 0 ;
+  struct _cmark_llist *arg2 = (struct _cmark_llist *) 0 ;
+  
+  SWIG_check_num_args("_cmark_llist::next",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("_cmark_llist::next",1,"struct _cmark_llist *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("_cmark_llist::next",2,"struct _cmark_llist *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("cmark_llist_next_set",1,SWIGTYPE_p__cmark_llist);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p__cmark_llist,SWIG_POINTER_DISOWN))){
+    SWIG_fail_ptr("cmark_llist_next_set",2,SWIGTYPE_p__cmark_llist);
+  }
+  
+  if (arg1) (arg1)->next = arg2;
+  
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_cmark_llist_next_get(lua_State* L) {
+  int SWIG_arg = 0;
+  struct _cmark_llist *arg1 = (struct _cmark_llist *) 0 ;
+  struct _cmark_llist *result = 0 ;
+  
+  SWIG_check_num_args("_cmark_llist::next",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("_cmark_llist::next",1,"struct _cmark_llist *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("cmark_llist_next_get",1,SWIGTYPE_p__cmark_llist);
+  }
+  
+  result = (struct _cmark_llist *) ((arg1)->next);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p__cmark_llist,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_cmark_llist_data_set(lua_State* L) {
+  int SWIG_arg = 0;
+  struct _cmark_llist *arg1 = (struct _cmark_llist *) 0 ;
+  void *arg2 = (void *) 0 ;
+  
+  SWIG_check_num_args("_cmark_llist::data",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("_cmark_llist::data",1,"struct _cmark_llist *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("_cmark_llist::data",2,"void *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("cmark_llist_data_set",1,SWIGTYPE_p__cmark_llist);
+  }
+  
+  arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"cmark_llist_data_set");
+  if (arg1) (arg1)->data = arg2;
+  
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_cmark_llist_data_get(lua_State* L) {
+  int SWIG_arg = 0;
+  struct _cmark_llist *arg1 = (struct _cmark_llist *) 0 ;
+  void *result = 0 ;
+  
+  SWIG_check_num_args("_cmark_llist::data",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("_cmark_llist::data",1,"struct _cmark_llist *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("cmark_llist_data_get",1,SWIGTYPE_p__cmark_llist);
+  }
+  
+  result = (void *) ((arg1)->data);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_void,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_new_cmark_llist(lua_State* L) {
+  int SWIG_arg = 0;
+  struct _cmark_llist *result = 0 ;
+  
+  SWIG_check_num_args("_cmark_llist::_cmark_llist",0,0)
+  result = (struct _cmark_llist *)calloc(1, sizeof(struct _cmark_llist));
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p__cmark_llist,1); SWIG_arg++; 
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static void swig_delete_cmark_llist(void *obj) {
+struct _cmark_llist *arg1 = (struct _cmark_llist *) obj;
+free((char *) arg1);
+}
+static int _proxy__wrap_new_cmark_llist(lua_State *L) {
+    assert(lua_istable(L,1));
+    lua_pushcfunction(L,_wrap_new_cmark_llist);
+    assert(!lua_isnil(L,-1));
+    lua_replace(L,1); /* replace our table with real constructor */
+    lua_call(L,lua_gettop(L)-1,1);
+    return 1;
+}
+static swig_lua_attribute swig_cmark_llist_attributes[] = {
+    { "next", _wrap_cmark_llist_next_get, _wrap_cmark_llist_next_set },
+    { "data", _wrap_cmark_llist_data_get, _wrap_cmark_llist_data_set },
+    {0,0,0}
+};
+static swig_lua_method swig_cmark_llist_methods[]= {
+    {0,0}
+};
+static swig_lua_method swig_cmark_llist_meta[] = {
+    {0,0}
+};
+
+static swig_lua_attribute swig_cmark_llist_Sf_SwigStatic_attributes[] = {
+    {0,0,0}
+};
+static swig_lua_const_info swig_cmark_llist_Sf_SwigStatic_constants[]= {
+    {0,0,0,0,0,0}
+};
+static swig_lua_method swig_cmark_llist_Sf_SwigStatic_methods[]= {
+    {0,0}
+};
+static swig_lua_class* swig_cmark_llist_Sf_SwigStatic_classes[]= {
+    0
+};
+
+static swig_lua_namespace swig_cmark_llist_Sf_SwigStatic = {
+    "cmark_llist",
+    swig_cmark_llist_Sf_SwigStatic_methods,
+    swig_cmark_llist_Sf_SwigStatic_attributes,
+    swig_cmark_llist_Sf_SwigStatic_constants,
+    swig_cmark_llist_Sf_SwigStatic_classes,
+    0
+};
+static swig_lua_class *swig_cmark_llist_bases[] = {0};
+static const char *swig_cmark_llist_base_names[] = {0};
+static swig_lua_class _wrap_class_cmark_llist = { "cmark_llist", "cmark_llist", &SWIGTYPE_p__cmark_llist,_proxy__wrap_new_cmark_llist, swig_delete_cmark_llist, swig_cmark_llist_methods, swig_cmark_llist_attributes, &swig_cmark_llist_Sf_SwigStatic, swig_cmark_llist_meta, swig_cmark_llist_bases, swig_cmark_llist_base_names };
+
+static int _wrap_llist_append(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_mem *arg1 = (cmark_mem *) 0 ;
+  cmark_llist *arg2 = (cmark_llist *) 0 ;
+  void *arg3 = (void *) 0 ;
+  cmark_llist *result = 0 ;
+  
+  SWIG_check_num_args("cmark_llist_append",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_llist_append",1,"cmark_mem *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("cmark_llist_append",2,"cmark_llist *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("cmark_llist_append",3,"void *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("llist_append",1,SWIGTYPE_p_cmark_mem);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("llist_append",2,SWIGTYPE_p__cmark_llist);
+  }
+  
+  arg3=(void *)SWIG_MustGetPtr(L,3,0,0,3,"llist_append");
+  result = (cmark_llist *)cmark_llist_append(arg1,arg2,arg3);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p__cmark_llist,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_llist_free_full(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_mem *arg1 = (cmark_mem *) 0 ;
+  cmark_llist *arg2 = (cmark_llist *) 0 ;
+  cmark_free_func arg3 = (cmark_free_func) 0 ;
+  
+  SWIG_check_num_args("cmark_llist_free_full",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_llist_free_full",1,"cmark_mem *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("cmark_llist_free_full",2,"cmark_llist *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("cmark_llist_free_full",3,"cmark_free_func");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("llist_free_full",1,SWIGTYPE_p_cmark_mem);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("llist_free_full",2,SWIGTYPE_p__cmark_llist);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_f_p_struct_cmark_mem_p_void__void,0))){
+    SWIG_fail_ptr("llist_free_full",3,SWIGTYPE_p_f_p_struct_cmark_mem_p_void__void);
+  }
+  
+  cmark_llist_free_full(arg1,arg2,arg3);
+  
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_llist_free(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_mem *arg1 = (cmark_mem *) 0 ;
+  cmark_llist *arg2 = (cmark_llist *) 0 ;
+  
+  SWIG_check_num_args("cmark_llist_free",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_llist_free",1,"cmark_mem *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("cmark_llist_free",2,"cmark_llist *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("llist_free",1,SWIGTYPE_p_cmark_mem);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("llist_free",2,SWIGTYPE_p__cmark_llist);
+  }
+  
+  cmark_llist_free(arg1,arg2);
+  
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_node_new(lua_State* L) {
   int SWIG_arg = 0;
   cmark_node_type arg1 ;
@@ -3068,6 +3421,63 @@ static int _wrap_node_new_with_mem(lua_State* L) {
   }
   
   result = (cmark_node *)cmark_node_new_with_mem(arg1,arg2);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_cmark_node,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_node_new_with_ext(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node_type arg1 ;
+  cmark_syntax_extension *arg2 = (cmark_syntax_extension *) 0 ;
+  cmark_node *result = 0 ;
+  
+  SWIG_check_num_args("cmark_node_new_with_ext",2,2)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("cmark_node_new_with_ext",1,"cmark_node_type");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("cmark_node_new_with_ext",2,"cmark_syntax_extension *");
+  arg1 = (cmark_node_type)(int)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_cmark_syntax_extension,0))){
+    SWIG_fail_ptr("node_new_with_ext",2,SWIGTYPE_p_cmark_syntax_extension);
+  }
+  
+  result = (cmark_node *)cmark_node_new_with_ext(arg1,arg2);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_cmark_node,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_node_new_with_mem_and_ext(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node_type arg1 ;
+  cmark_mem *arg2 = (cmark_mem *) 0 ;
+  cmark_syntax_extension *arg3 = (cmark_syntax_extension *) 0 ;
+  cmark_node *result = 0 ;
+  
+  SWIG_check_num_args("cmark_node_new_with_mem_and_ext",3,3)
+  if(!lua_isnumber(L,1)) SWIG_fail_arg("cmark_node_new_with_mem_and_ext",1,"cmark_node_type");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("cmark_node_new_with_mem_and_ext",2,"cmark_mem *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("cmark_node_new_with_mem_and_ext",3,"cmark_syntax_extension *");
+  arg1 = (cmark_node_type)(int)lua_tonumber(L, 1);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("node_new_with_mem_and_ext",2,SWIGTYPE_p_cmark_mem);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_cmark_syntax_extension,0))){
+    SWIG_fail_ptr("node_new_with_mem_and_ext",3,SWIGTYPE_p_cmark_syntax_extension);
+  }
+  
+  result = (cmark_node *)cmark_node_new_with_mem_and_ext(arg1,arg2,arg3);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_cmark_node,0); SWIG_arg++; 
   return SWIG_arg;
   
@@ -3199,6 +3609,28 @@ static int _wrap_node_last_child(lua_State* L) {
   }
   
   result = (cmark_node *)cmark_node_last_child(arg1);
+  SWIG_NewPointerObj(L,result,SWIGTYPE_p_cmark_node,0); SWIG_arg++; 
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_node_parent_footnote_def(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  cmark_node *result = 0 ;
+  
+  SWIG_check_num_args("cmark_node_parent_footnote_def",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_node_parent_footnote_def",1,"cmark_node *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("node_parent_footnote_def",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  result = (cmark_node *)cmark_node_parent_footnote_def(arg1);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_cmark_node,0); SWIG_arg++; 
   return SWIG_arg;
   
@@ -3408,6 +3840,35 @@ static int _wrap_node_set_user_data(lua_State* L) {
   
   arg2=(void *)SWIG_MustGetPtr(L,2,0,0,2,"node_set_user_data");
   result = (int)cmark_node_set_user_data(arg1,arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_node_set_user_data_free_func(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  cmark_free_func arg2 = (cmark_free_func) 0 ;
+  int result;
+  
+  SWIG_check_num_args("cmark_node_set_user_data_free_func",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_node_set_user_data_free_func",1,"cmark_node *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("cmark_node_set_user_data_free_func",2,"cmark_free_func");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("node_set_user_data_free_func",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_f_p_struct_cmark_mem_p_void__void,0))){
+    SWIG_fail_ptr("node_set_user_data_free_func",2,SWIGTYPE_p_f_p_struct_cmark_mem_p_void__void);
+  }
+  
+  result = (int)cmark_node_set_user_data_free_func(arg1,arg2);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -3743,6 +4204,53 @@ static int _wrap_node_set_list_tight(lua_State* L) {
 }
 
 
+static int _wrap_node_get_item_index(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int result;
+  
+  SWIG_check_num_args("cmark_node_get_item_index",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_node_get_item_index",1,"cmark_node *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("node_get_item_index",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  result = (int)cmark_node_get_item_index(arg1);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_node_set_item_index(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  int result;
+  
+  SWIG_check_num_args("cmark_node_set_item_index",2,2)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_node_set_item_index",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_node_set_item_index",2,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("node_set_item_index",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  result = (int)cmark_node_set_item_index(arg1,arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_node_get_fence_info(lua_State* L) {
   int SWIG_arg = 0;
   cmark_node *arg1 = (cmark_node *) 0 ;
@@ -3781,6 +4289,79 @@ static int _wrap_node_set_fence_info(lua_State* L) {
   
   arg2 = (char *)lua_tostring(L, 2);
   result = (int)cmark_node_set_fence_info(arg1,(char const *)arg2);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_node_set_fenced(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 ;
+  char arg5 ;
+  int result;
+  
+  SWIG_check_num_args("cmark_node_set_fenced",5,5)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_node_set_fenced",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_node_set_fenced",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("cmark_node_set_fenced",3,"int");
+  if(!lua_isnumber(L,4)) SWIG_fail_arg("cmark_node_set_fenced",4,"int");
+  if(!SWIG_lua_isnilstring(L,5)) SWIG_fail_arg("cmark_node_set_fenced",5,"char");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("node_set_fenced",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  arg3 = (int)lua_tonumber(L, 3);
+  arg4 = (int)lua_tonumber(L, 4);
+  arg5 = (lua_tostring(L, 5))[0];
+  result = (int)cmark_node_set_fenced(arg1,arg2,arg3,arg4,arg5);
+  lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_node_get_fenced(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int *arg2 = (int *) 0 ;
+  int *arg3 = (int *) 0 ;
+  char *arg4 = (char *) 0 ;
+  int result;
+  
+  SWIG_check_num_args("cmark_node_get_fenced",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_node_get_fenced",1,"cmark_node *");
+  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("cmark_node_get_fenced",2,"int *");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("cmark_node_get_fenced",3,"int *");
+  if(!SWIG_lua_isnilstring(L,4)) SWIG_fail_arg("cmark_node_get_fenced",4,"char *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("node_get_fenced",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_int,0))){
+    SWIG_fail_ptr("node_get_fenced",2,SWIGTYPE_p_int);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_int,0))){
+    SWIG_fail_ptr("node_get_fenced",3,SWIGTYPE_p_int);
+  }
+  
+  arg4 = (char *)lua_tostring(L, 4);
+  result = (int)cmark_node_get_fenced(arg1,arg2,arg3,arg4);
   lua_pushnumber(L, (lua_Number) result); SWIG_arg++;
   return SWIG_arg;
   
@@ -4253,6 +4834,27 @@ static int _wrap_consolidate_text_nodes(lua_State* L) {
 }
 
 
+static int _wrap_node_own(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  
+  SWIG_check_num_args("cmark_node_own",1,1)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_node_own",1,"cmark_node *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("node_own",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  cmark_node_own(arg1);
+  
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_parser_new(lua_State* L) {
   int SWIG_arg = 0;
   int arg1 ;
@@ -4287,38 +4889,6 @@ static int _wrap_parser_new_with_mem(lua_State* L) {
   }
   
   result = (cmark_parser *)cmark_parser_new_with_mem(arg1,arg2);
-  SWIG_NewPointerObj(L,result,SWIGTYPE_p_cmark_parser,0); SWIG_arg++; 
-  return SWIG_arg;
-  
-  fail: SWIGUNUSED;
-  lua_error(L);
-  return 0;
-}
-
-
-static int _wrap_parser_new_with_mem_into_root(lua_State* L) {
-  int SWIG_arg = 0;
-  int arg1 ;
-  cmark_mem *arg2 = (cmark_mem *) 0 ;
-  cmark_node *arg3 = (cmark_node *) 0 ;
-  cmark_parser *result = 0 ;
-  
-  SWIG_check_num_args("cmark_parser_new_with_mem_into_root",3,3)
-  if(!lua_isnumber(L,1)) SWIG_fail_arg("cmark_parser_new_with_mem_into_root",1,"int");
-  if(!SWIG_isptrtype(L,2)) SWIG_fail_arg("cmark_parser_new_with_mem_into_root",2,"cmark_mem *");
-  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("cmark_parser_new_with_mem_into_root",3,"cmark_node *");
-  arg1 = (int)lua_tonumber(L, 1);
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,2,(void**)&arg2,SWIGTYPE_p_cmark_mem,0))){
-    SWIG_fail_ptr("parser_new_with_mem_into_root",2,SWIGTYPE_p_cmark_mem);
-  }
-  
-  
-  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_cmark_node,0))){
-    SWIG_fail_ptr("parser_new_with_mem_into_root",3,SWIGTYPE_p_cmark_node);
-  }
-  
-  result = (cmark_parser *)cmark_parser_new_with_mem_into_root(arg1,arg2,arg3);
   SWIG_NewPointerObj(L,result,SWIGTYPE_p_cmark_parser,0); SWIG_arg++; 
   return SWIG_arg;
   
@@ -4474,22 +5044,100 @@ static int _wrap_render_xml(lua_State* L) {
 }
 
 
+static int _wrap_render_xml_with_mem(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  cmark_mem *arg3 = (cmark_mem *) 0 ;
+  char *result = 0 ;
+  
+  SWIG_check_num_args("cmark_render_xml_with_mem",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_render_xml_with_mem",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_render_xml_with_mem",2,"int");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("cmark_render_xml_with_mem",3,"cmark_mem *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("render_xml_with_mem",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("render_xml_with_mem",3,SWIGTYPE_p_cmark_mem);
+  }
+  
+  result = (char *)cmark_render_xml_with_mem(arg1,arg2,arg3);
+  lua_pushstring(L,(const char *)result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_render_html(lua_State* L) {
   int SWIG_arg = 0;
   cmark_node *arg1 = (cmark_node *) 0 ;
   int arg2 ;
+  cmark_llist *arg3 = (cmark_llist *) 0 ;
   char *result = 0 ;
   
-  SWIG_check_num_args("cmark_render_html",2,2)
+  SWIG_check_num_args("cmark_render_html",3,3)
   if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_render_html",1,"cmark_node *");
   if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_render_html",2,"int");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("cmark_render_html",3,"cmark_llist *");
   
   if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
     SWIG_fail_ptr("render_html",1,SWIGTYPE_p_cmark_node);
   }
   
   arg2 = (int)lua_tonumber(L, 2);
-  result = (char *)cmark_render_html(arg1,arg2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("render_html",3,SWIGTYPE_p__cmark_llist);
+  }
+  
+  result = (char *)cmark_render_html(arg1,arg2,arg3);
+  lua_pushstring(L,(const char *)result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_render_html_with_mem(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  cmark_llist *arg3 = (cmark_llist *) 0 ;
+  cmark_mem *arg4 = (cmark_mem *) 0 ;
+  char *result = 0 ;
+  
+  SWIG_check_num_args("cmark_render_html_with_mem",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_render_html_with_mem",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_render_html_with_mem",2,"int");
+  if(!SWIG_isptrtype(L,3)) SWIG_fail_arg("cmark_render_html_with_mem",3,"cmark_llist *");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("cmark_render_html_with_mem",4,"cmark_mem *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("render_html_with_mem",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,3,(void**)&arg3,SWIGTYPE_p__cmark_llist,0))){
+    SWIG_fail_ptr("render_html_with_mem",3,SWIGTYPE_p__cmark_llist);
+  }
+  
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("render_html_with_mem",4,SWIGTYPE_p_cmark_mem);
+  }
+  
+  result = (char *)cmark_render_html_with_mem(arg1,arg2,arg3,arg4);
   lua_pushstring(L,(const char *)result); SWIG_arg++;
   return SWIG_arg;
   
@@ -4527,6 +5175,41 @@ static int _wrap_render_man(lua_State* L) {
 }
 
 
+static int _wrap_render_man_with_mem(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  cmark_mem *arg4 = (cmark_mem *) 0 ;
+  char *result = 0 ;
+  
+  SWIG_check_num_args("cmark_render_man_with_mem",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_render_man_with_mem",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_render_man_with_mem",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("cmark_render_man_with_mem",3,"int");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("cmark_render_man_with_mem",4,"cmark_mem *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("render_man_with_mem",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  arg3 = (int)lua_tonumber(L, 3);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("render_man_with_mem",4,SWIGTYPE_p_cmark_mem);
+  }
+  
+  result = (char *)cmark_render_man_with_mem(arg1,arg2,arg3,arg4);
+  lua_pushstring(L,(const char *)result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_render_commonmark(lua_State* L) {
   int SWIG_arg = 0;
   cmark_node *arg1 = (cmark_node *) 0 ;
@@ -4555,6 +5238,104 @@ static int _wrap_render_commonmark(lua_State* L) {
 }
 
 
+static int _wrap_render_commonmark_with_mem(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  cmark_mem *arg4 = (cmark_mem *) 0 ;
+  char *result = 0 ;
+  
+  SWIG_check_num_args("cmark_render_commonmark_with_mem",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_render_commonmark_with_mem",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_render_commonmark_with_mem",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("cmark_render_commonmark_with_mem",3,"int");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("cmark_render_commonmark_with_mem",4,"cmark_mem *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("render_commonmark_with_mem",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  arg3 = (int)lua_tonumber(L, 3);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("render_commonmark_with_mem",4,SWIGTYPE_p_cmark_mem);
+  }
+  
+  result = (char *)cmark_render_commonmark_with_mem(arg1,arg2,arg3,arg4);
+  lua_pushstring(L,(const char *)result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_render_plaintext(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  char *result = 0 ;
+  
+  SWIG_check_num_args("cmark_render_plaintext",3,3)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_render_plaintext",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_render_plaintext",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("cmark_render_plaintext",3,"int");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("render_plaintext",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  arg3 = (int)lua_tonumber(L, 3);
+  result = (char *)cmark_render_plaintext(arg1,arg2,arg3);
+  lua_pushstring(L,(const char *)result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_render_plaintext_with_mem(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  cmark_mem *arg4 = (cmark_mem *) 0 ;
+  char *result = 0 ;
+  
+  SWIG_check_num_args("cmark_render_plaintext_with_mem",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_render_plaintext_with_mem",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_render_plaintext_with_mem",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("cmark_render_plaintext_with_mem",3,"int");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("cmark_render_plaintext_with_mem",4,"cmark_mem *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("render_plaintext_with_mem",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  arg3 = (int)lua_tonumber(L, 3);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("render_plaintext_with_mem",4,SWIGTYPE_p_cmark_mem);
+  }
+  
+  result = (char *)cmark_render_plaintext_with_mem(arg1,arg2,arg3,arg4);
+  lua_pushstring(L,(const char *)result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
 static int _wrap_render_latex(lua_State* L) {
   int SWIG_arg = 0;
   cmark_node *arg1 = (cmark_node *) 0 ;
@@ -4574,6 +5355,41 @@ static int _wrap_render_latex(lua_State* L) {
   arg2 = (int)lua_tonumber(L, 2);
   arg3 = (int)lua_tonumber(L, 3);
   result = (char *)cmark_render_latex(arg1,arg2,arg3);
+  lua_pushstring(L,(const char *)result); SWIG_arg++;
+  return SWIG_arg;
+  
+  fail: SWIGUNUSED;
+  lua_error(L);
+  return 0;
+}
+
+
+static int _wrap_render_latex_with_mem(lua_State* L) {
+  int SWIG_arg = 0;
+  cmark_node *arg1 = (cmark_node *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  cmark_mem *arg4 = (cmark_mem *) 0 ;
+  char *result = 0 ;
+  
+  SWIG_check_num_args("cmark_render_latex_with_mem",4,4)
+  if(!SWIG_isptrtype(L,1)) SWIG_fail_arg("cmark_render_latex_with_mem",1,"cmark_node *");
+  if(!lua_isnumber(L,2)) SWIG_fail_arg("cmark_render_latex_with_mem",2,"int");
+  if(!lua_isnumber(L,3)) SWIG_fail_arg("cmark_render_latex_with_mem",3,"int");
+  if(!SWIG_isptrtype(L,4)) SWIG_fail_arg("cmark_render_latex_with_mem",4,"cmark_mem *");
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,1,(void**)&arg1,SWIGTYPE_p_cmark_node,0))){
+    SWIG_fail_ptr("render_latex_with_mem",1,SWIGTYPE_p_cmark_node);
+  }
+  
+  arg2 = (int)lua_tonumber(L, 2);
+  arg3 = (int)lua_tonumber(L, 3);
+  
+  if (!SWIG_IsOK(SWIG_ConvertPtr(L,4,(void**)&arg4,SWIGTYPE_p_cmark_mem,0))){
+    SWIG_fail_ptr("render_latex_with_mem",4,SWIGTYPE_p_cmark_mem);
+  }
+  
+  result = (char *)cmark_render_latex_with_mem(arg1,arg2,arg3,arg4);
   lua_pushstring(L,(const char *)result); SWIG_arg++;
   return SWIG_arg;
   
@@ -4614,9 +5430,16 @@ static int _wrap_version_string(lua_State* L) {
 
 
 static swig_lua_attribute swig_SwigModule_attributes[] = {
+    { "NODE_LAST_BLOCK", _wrap_NODE_LAST_BLOCK_get, _wrap_NODE_LAST_BLOCK_set },
+    { "NODE_LAST_INLINE", _wrap_NODE_LAST_INLINE_get, _wrap_NODE_LAST_INLINE_set },
     {0,0,0}
 };
 static swig_lua_const_info swig_SwigModule_constants[]= {
+    {SWIG_LUA_CONSTTAB_INT("NODE_TYPE_PRESENT", ((0x8000)))},
+    {SWIG_LUA_CONSTTAB_INT("NODE_TYPE_BLOCK", (((0x8000)|0x0000)))},
+    {SWIG_LUA_CONSTTAB_INT("NODE_TYPE_INLINE", (((0x8000)|0x4000)))},
+    {SWIG_LUA_CONSTTAB_INT("NODE_TYPE_MASK", ((0xc000)))},
+    {SWIG_LUA_CONSTTAB_INT("NODE_VALUE_MASK", ((0x3fff)))},
     {SWIG_LUA_CONSTTAB_INT("NODE_NONE", (CMARK_NODE_NONE))},
     {SWIG_LUA_CONSTTAB_INT("NODE_DOCUMENT", (CMARK_NODE_DOCUMENT))},
     {SWIG_LUA_CONSTTAB_INT("NODE_BLOCK_QUOTE", (CMARK_NODE_BLOCK_QUOTE))},
@@ -4628,8 +5451,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("NODE_PARAGRAPH", (CMARK_NODE_PARAGRAPH))},
     {SWIG_LUA_CONSTTAB_INT("NODE_HEADING", (CMARK_NODE_HEADING))},
     {SWIG_LUA_CONSTTAB_INT("NODE_THEMATIC_BREAK", (CMARK_NODE_THEMATIC_BREAK))},
-    {SWIG_LUA_CONSTTAB_INT("NODE_FIRST_BLOCK", (CMARK_NODE_FIRST_BLOCK))},
-    {SWIG_LUA_CONSTTAB_INT("NODE_LAST_BLOCK", (CMARK_NODE_LAST_BLOCK))},
+    {SWIG_LUA_CONSTTAB_INT("NODE_FOOTNOTE_DEFINITION", (CMARK_NODE_FOOTNOTE_DEFINITION))},
     {SWIG_LUA_CONSTTAB_INT("NODE_TEXT", (CMARK_NODE_TEXT))},
     {SWIG_LUA_CONSTTAB_INT("NODE_SOFTBREAK", (CMARK_NODE_SOFTBREAK))},
     {SWIG_LUA_CONSTTAB_INT("NODE_LINEBREAK", (CMARK_NODE_LINEBREAK))},
@@ -4640,8 +5462,7 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("NODE_STRONG", (CMARK_NODE_STRONG))},
     {SWIG_LUA_CONSTTAB_INT("NODE_LINK", (CMARK_NODE_LINK))},
     {SWIG_LUA_CONSTTAB_INT("NODE_IMAGE", (CMARK_NODE_IMAGE))},
-    {SWIG_LUA_CONSTTAB_INT("NODE_FIRST_INLINE", (CMARK_NODE_FIRST_INLINE))},
-    {SWIG_LUA_CONSTTAB_INT("NODE_LAST_INLINE", (CMARK_NODE_LAST_INLINE))},
+    {SWIG_LUA_CONSTTAB_INT("NODE_FOOTNOTE_REFERENCE", (CMARK_NODE_FOOTNOTE_REFERENCE))},
     {SWIG_LUA_CONSTTAB_INT("NO_LIST", (CMARK_NO_LIST))},
     {SWIG_LUA_CONSTTAB_INT("BULLET_LIST", (CMARK_BULLET_LIST))},
     {SWIG_LUA_CONSTTAB_INT("ORDERED_LIST", (CMARK_ORDERED_LIST))},
@@ -4661,19 +5482,33 @@ static swig_lua_const_info swig_SwigModule_constants[]= {
     {SWIG_LUA_CONSTTAB_INT("OPT_NORMALIZE", ((1 << 8)))},
     {SWIG_LUA_CONSTTAB_INT("OPT_VALIDATE_UTF8", ((1 << 9)))},
     {SWIG_LUA_CONSTTAB_INT("OPT_SMART", ((1 << 10)))},
+    {SWIG_LUA_CONSTTAB_INT("OPT_GITHUB_PRE_LANG", ((1 << 11)))},
+    {SWIG_LUA_CONSTTAB_INT("OPT_LIBERAL_HTML_TAG", ((1 << 12)))},
+    {SWIG_LUA_CONSTTAB_INT("OPT_FOOTNOTES", ((1 << 13)))},
+    {SWIG_LUA_CONSTTAB_INT("OPT_STRIKETHROUGH_DOUBLE_TILDE", ((1 << 14)))},
+    {SWIG_LUA_CONSTTAB_INT("OPT_TABLE_PREFER_STYLE_ATTRIBUTES", ((1 << 15)))},
+    {SWIG_LUA_CONSTTAB_INT("OPT_FULL_INFO_STRING", ((1 << 16)))},
     {0,0,0,0,0,0}
 };
 static swig_lua_method swig_SwigModule_methods[]= {
     { "markdown_to_html", _wrap_markdown_to_html},
     { "get_default_mem_allocator", _wrap_get_default_mem_allocator},
+    { "get_arena_mem_allocator", _wrap_get_arena_mem_allocator},
+    { "arena_reset", _wrap_arena_reset},
+    { "llist_append", _wrap_llist_append},
+    { "llist_free_full", _wrap_llist_free_full},
+    { "llist_free", _wrap_llist_free},
     { "node_new", _wrap_node_new},
     { "node_new_with_mem", _wrap_node_new_with_mem},
+    { "node_new_with_ext", _wrap_node_new_with_ext},
+    { "node_new_with_mem_and_ext", _wrap_node_new_with_mem_and_ext},
     { "node_free", _wrap_node_free},
     { "node_next", _wrap_node_next},
     { "node_previous", _wrap_node_previous},
     { "node_parent", _wrap_node_parent},
     { "node_first_child", _wrap_node_first_child},
     { "node_last_child", _wrap_node_last_child},
+    { "node_parent_footnote_def", _wrap_node_parent_footnote_def},
     { "iter_new", _wrap_iter_new},
     { "iter_free", _wrap_iter_free},
     { "iter_next", _wrap_iter_next},
@@ -4683,6 +5518,7 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "iter_reset", _wrap_iter_reset},
     { "node_get_user_data", _wrap_node_get_user_data},
     { "node_set_user_data", _wrap_node_set_user_data},
+    { "node_set_user_data_free_func", _wrap_node_set_user_data_free_func},
     { "node_get_type", _wrap_node_get_type},
     { "node_get_type_string", _wrap_node_get_type_string},
     { "node_get_literal", _wrap_node_get_literal},
@@ -4697,8 +5533,12 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "node_set_list_start", _wrap_node_set_list_start},
     { "node_get_list_tight", _wrap_node_get_list_tight},
     { "node_set_list_tight", _wrap_node_set_list_tight},
+    { "node_get_item_index", _wrap_node_get_item_index},
+    { "node_set_item_index", _wrap_node_set_item_index},
     { "node_get_fence_info", _wrap_node_get_fence_info},
     { "node_set_fence_info", _wrap_node_set_fence_info},
+    { "node_set_fenced", _wrap_node_set_fenced},
+    { "node_get_fenced", _wrap_node_get_fenced},
     { "node_get_url", _wrap_node_get_url},
     { "node_set_url", _wrap_node_set_url},
     { "node_get_title", _wrap_node_get_title},
@@ -4718,25 +5558,33 @@ static swig_lua_method swig_SwigModule_methods[]= {
     { "node_prepend_child", _wrap_node_prepend_child},
     { "node_append_child", _wrap_node_append_child},
     { "consolidate_text_nodes", _wrap_consolidate_text_nodes},
+    { "node_own", _wrap_node_own},
     { "parser_new", _wrap_parser_new},
     { "parser_new_with_mem", _wrap_parser_new_with_mem},
-    { "parser_new_with_mem_into_root", _wrap_parser_new_with_mem_into_root},
     { "parser_free", _wrap_parser_free},
     { "parser_feed", _wrap_parser_feed},
     { "parser_finish", _wrap_parser_finish},
     { "parse_document", _wrap_parse_document},
     { "parse_file", _wrap_parse_file},
     { "render_xml", _wrap_render_xml},
+    { "render_xml_with_mem", _wrap_render_xml_with_mem},
     { "render_html", _wrap_render_html},
+    { "render_html_with_mem", _wrap_render_html_with_mem},
     { "render_man", _wrap_render_man},
+    { "render_man_with_mem", _wrap_render_man_with_mem},
     { "render_commonmark", _wrap_render_commonmark},
+    { "render_commonmark_with_mem", _wrap_render_commonmark_with_mem},
+    { "render_plaintext", _wrap_render_plaintext},
+    { "render_plaintext_with_mem", _wrap_render_plaintext_with_mem},
     { "render_latex", _wrap_render_latex},
+    { "render_latex_with_mem", _wrap_render_latex_with_mem},
     { "version", _wrap_version},
     { "version_string", _wrap_version_string},
     {0,0}
 };
 static swig_lua_class* swig_SwigModule_classes[]= {
 &_wrap_class_mem,
+&_wrap_class_cmark_llist,
     0
 };
 static swig_lua_namespace* swig_SwigModule_namespaces[] = {
@@ -4758,6 +5606,7 @@ static swig_lua_namespace swig_SwigModule = {
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
 static swig_type_info _swigt__p_FILE = {"_p_FILE", "FILE *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p__cmark_llist = {"_p__cmark_llist", "cmark_llist *|struct _cmark_llist *|_cmark_llist *", 0, 0, (void*)&_wrap_class_cmark_llist, 0};
 static swig_type_info _swigt__p_cmark_delim_type = {"_p_cmark_delim_type", "cmark_delim_type *|enum cmark_delim_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_cmark_event_type = {"_p_cmark_event_type", "cmark_event_type *|enum cmark_event_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_cmark_iter = {"_p_cmark_iter", "cmark_iter *|struct cmark_iter *", 0, 0, (void*)0, 0};
@@ -4766,13 +5615,18 @@ static swig_type_info _swigt__p_cmark_mem = {"_p_cmark_mem", "cmark_mem *|struct
 static swig_type_info _swigt__p_cmark_node = {"_p_cmark_node", "cmark_node *|struct cmark_node *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_cmark_node_type = {"_p_cmark_node_type", "cmark_node_type *|enum cmark_node_type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_cmark_parser = {"_p_cmark_parser", "cmark_parser *|struct cmark_parser *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_cmark_syntax_extension = {"_p_cmark_syntax_extension", "cmark_syntax_extension *|struct cmark_syntax_extension *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_f_p_struct_cmark_mem_p_void__void = {"_p_f_p_struct_cmark_mem_p_void__void", "cmark_free_func|void (*)(struct cmark_mem *,void *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_void__void = {"_p_f_p_void__void", "void (*)(void *)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_p_void_size_t__p_void = {"_p_f_p_void_size_t__p_void", "void *(*)(void *,size_t)", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_f_size_t_size_t__p_void = {"_p_f_size_t_size_t__p_void", "void *(*)(size_t,size_t)", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_int32_t = {"_p_int32_t", "bufsize_t *|int32_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_void = {"_p_void", "void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FILE,
+  &_swigt__p__cmark_llist,
   &_swigt__p_cmark_delim_type,
   &_swigt__p_cmark_event_type,
   &_swigt__p_cmark_iter,
@@ -4781,13 +5635,18 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_cmark_node,
   &_swigt__p_cmark_node_type,
   &_swigt__p_cmark_parser,
+  &_swigt__p_cmark_syntax_extension,
+  &_swigt__p_f_p_struct_cmark_mem_p_void__void,
   &_swigt__p_f_p_void__void,
   &_swigt__p_f_p_void_size_t__p_void,
   &_swigt__p_f_size_t_size_t__p_void,
+  &_swigt__p_int,
+  &_swigt__p_int32_t,
   &_swigt__p_void,
 };
 
 static swig_cast_info _swigc__p_FILE[] = {  {&_swigt__p_FILE, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p__cmark_llist[] = {  {&_swigt__p__cmark_llist, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_cmark_delim_type[] = {  {&_swigt__p_cmark_delim_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_cmark_event_type[] = {  {&_swigt__p_cmark_event_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_cmark_iter[] = {  {&_swigt__p_cmark_iter, 0, 0, 0},{0, 0, 0, 0}};
@@ -4796,13 +5655,18 @@ static swig_cast_info _swigc__p_cmark_mem[] = {  {&_swigt__p_cmark_mem, 0, 0, 0}
 static swig_cast_info _swigc__p_cmark_node[] = {  {&_swigt__p_cmark_node, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_cmark_node_type[] = {  {&_swigt__p_cmark_node_type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_cmark_parser[] = {  {&_swigt__p_cmark_parser, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_cmark_syntax_extension[] = {  {&_swigt__p_cmark_syntax_extension, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_f_p_struct_cmark_mem_p_void__void[] = {  {&_swigt__p_f_p_struct_cmark_mem_p_void__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_void__void[] = {  {&_swigt__p_f_p_void__void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_p_void_size_t__p_void[] = {  {&_swigt__p_f_p_void_size_t__p_void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_f_size_t_size_t__p_void[] = {  {&_swigt__p_f_size_t_size_t__p_void, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_int32_t[] = {  {&_swigt__p_int32_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FILE,
+  _swigc__p__cmark_llist,
   _swigc__p_cmark_delim_type,
   _swigc__p_cmark_event_type,
   _swigc__p_cmark_iter,
@@ -4811,9 +5675,13 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_cmark_node,
   _swigc__p_cmark_node_type,
   _swigc__p_cmark_parser,
+  _swigc__p_cmark_syntax_extension,
+  _swigc__p_f_p_struct_cmark_mem_p_void__void,
   _swigc__p_f_p_void__void,
   _swigc__p_f_p_void_size_t__p_void,
   _swigc__p_f_size_t_size_t__p_void,
+  _swigc__p_int,
+  _swigc__p_int32_t,
   _swigc__p_void,
 };
 

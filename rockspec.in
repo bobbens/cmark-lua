@@ -6,7 +6,7 @@ source = {
 }
 description = {
     summary = [[Lua wrapper for libcmark, CommonMark Markdown parsing
-      and rendering library]],
+      and rendering library (Github Flavour Markdown variant)]],
     detailed = [[cmark exposes the entire API of libcmark, as
       documented in the `cmark(3)` man page, and adds a
       more lua-esque interface for walking the node tree.]],

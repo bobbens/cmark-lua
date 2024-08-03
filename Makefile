@@ -1,5 +1,5 @@
 CBITS = ext
-VERSION=$(shell grep CMARK_VERSION_STRING $(CBITS)/cmark_version.h | awk '{print $$3}')
+VERSION=$(shell grep CMARK_GFM_VERSION_STRING $(CBITS)/cmark-gfm_version.h | awk '{print $$3}')
 REVISION=1
 ROCKSPEC=cmark-$(VERSION)-$(REVISION).rockspec
 CFLAGS = -fPIC -O3 -I$(CBITS) -I.
@@ -28,8 +28,8 @@ cmark.so: cmark_wrap.o $(OBJS)
 cmark-lua.a: cmark_wrap.o $(OBJS)
 	ar rcs $@ $^ $(LUASTATIC)
 
-cmark_wrap.c: cmark.i $(CBITS)/cmark.h
-	$(SWIG) -o $@ -lua -I$(CBITS) -DCMARK_EXPORT='' $<
+cmark_wrap.c: cmark.i $(CBITS)/cmark-gfm.h
+	$(SWIG) -o $@ -lua -I$(CBITS) -DCMARK_GFM_EXPORT='' $<
 
 update: $(C_SOURCES) spec-tests.lua
 
@@ -40,10 +40,10 @@ spec-tests.lua: $(CMARK_DIR)/test/spec.txt
 $(CBITS)/config.h: $(CMARK_DIR)/build/src/config.h
 	cp $< $@
 
-$(CBITS)/cmark_export.h: $(CMARK_DIR)/build/src/cmark_export.h
+$(CBITS)/cmark-gfm_export.h: $(CMARK_DIR)/build/src/cmark-gfm_export.h
 	cp $< $@
 
-$(CBITS)/cmark_version.h: $(CMARK_DIR)/build/src/cmark_version.h
+$(CBITS)/cmark-gfm_version.h: $(CMARK_DIR)/build/src/cmark-gfm_version.h
 	cp $< $@
 
 $(CBITS)/%: $(CMARK_DIR)/src/%

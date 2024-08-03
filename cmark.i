@@ -1,6 +1,6 @@
 %module cmark
 %{
-#include "cmark.h"
+#include "cmark-gfm.h"
 %}
 
 // Renames:
@@ -8,7 +8,7 @@
 // cmark_parse_document -> parse_document
 %rename("%(regex:/^(cmark|CMARK)_(.*)/\\2/)s") "";
 
-%include "cmark.h"
+%include "cmark-gfm.h"
 
 %{
 extern void push_cmark_node(lua_State *L, cmark_node *node)
